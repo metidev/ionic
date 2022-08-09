@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-list color="tertiary">
+  <ion-item color="tertiary">
+    <ion-avatar slot="start">
+      <img src="http://placeimg.com/640/480" alt="">
+    </ion-avatar>
+    <ion-label>
+      <h1>Mehdi Anvari</h1>
+      <p>Gathered: <span class="money"> $ 15,00</span></p>
+    </ion-label>
+  </ion-item>
+</ion-list>
+  <app-pickup-call-card status="hold" UpdatedAt="27/07/2019 19:45" CreatedAt="4/06/2022" notes=" we have tow bags that are full, Lorem ipsum dolor sit amet
+  consectetur">
+  <ion-card-header header>
+    <ion-card-subtitle>Last pickup call</ion-card-subtitle>
+  </ion-card-header>
+  <ion-button footer color="tertiary" fill="clear" (click)="goToPickupCalls()" size="full">See all...</ion-button>
+</app-pickup-call-card>
+  
+  
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="newPickupCall()" color="tertiary">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+</ion-content>
