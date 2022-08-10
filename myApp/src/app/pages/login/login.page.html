@@ -1,5 +1,6 @@
 <ion-content>
   <div class="flex-center">
+    <form [formGroup]="form">
     <ion-card>
       <ion-card-header>
         <ion-card-title color="tertiary">Card Title</ion-card-title>
@@ -8,16 +9,20 @@
       <ion-card-content>
         <ion-item>
           <ion-label position="floating">Email</ion-label>
-          <ion-input type="email"></ion-input>
+          <ion-input type="email" formControlName="email"></ion-input>
         </ion-item>
+        <ion-label color="danger" *ngIf="form.get('email').touched && form.get('email').errors?.required">email is mandatory</ion-label>
+        <ion-label color="danger" *ngIf="form.get('email').touched && form.get('email').errors?.email">email is invalid</ion-label>
         <ion-item>
           <ion-label position="floating">Password</ion-label>
-          <ion-input type="password"></ion-input>
+          <ion-input type="password" formControlName="password"></ion-input>
         </ion-item>
-        <ion-button color="medium" fill="clear" size="full">Forgot Password</ion-button>
-        <ion-button color="tertiary" size="full" (click)="login()" shape="round">Login</ion-button>
+        <ion-label color="danger" *ngIf="form.get('password').touched && form.get('password').errors?.required">password is invalid</ion-label>
+        <ion-button color="medium" fill="clear" [disabled]="!form.get('email').valid" size="full">Forgot Password</ion-button>
+        <ion-button color="tertiary" size="full" [disabled]="!form.valid" (click)="login()" shape="round">Login</ion-button>
         <ion-button color="tertiary" fill="clear" (click)="register()" size="full">Register</ion-button>
       </ion-card-content>
     </ion-card>
+  </form>
   </div>
 </ion-content>
